@@ -296,7 +296,7 @@ class SentenceTransformer(nn.Sequential):
         while True:
             try:
                 id, batch_size, sentences = input_queue.get()
-                embeddings = model.encode(sentences, device=target_device,  show_progress_bar=False, convert_to_numpy=True, batch_size=batch_size)
+                embeddings = model.encode(sentences, device=target_device,  show_progress_bar=True, convert_to_numpy=True, batch_size=batch_size)
                 results_queue.put([id, embeddings])
             except queue.Empty:
                 break
